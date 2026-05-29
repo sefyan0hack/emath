@@ -3,10 +3,8 @@ namespace emath {
 auto to_deg(float rad) -> float;
 auto to_rad(float deg) -> float;
 
-class vec3
+struct vec3
 {
-public:
-
     vec3();
     vec3(float a);
     vec3(float x, float y, float z);
