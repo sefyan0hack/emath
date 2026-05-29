@@ -25,6 +25,15 @@ auto vec4::operator-=(const vec4& other) -> vec4& {
     return *this;
 }
 
+auto vec4::operator*=(const vec4& other) -> vec4&
+{
+    x *= other.x;
+    y *= other.y;
+    z *= other.z;
+    w *= other.w;
+    return *this;
+}
+
 auto vec4::operator*=(float a) -> vec4& {
     x *= a;
     y *= a;
@@ -48,9 +57,11 @@ auto vec4::operator-(const vec4& other) const -> vec4
     return result;
 }
 
-auto vec4::operator*(const vec4& other) const -> float
+auto vec4::operator*(const vec4& other) const -> vec4
 {
-    return x * other.x + y * other.y + z * other.z + z * other.z;
+    vec4 result = *this;
+    result *= other;
+    return result;
 }
 
 auto vec4::operator*(float a) const -> vec4
@@ -85,14 +96,9 @@ auto vec4::is_normalized() const -> bool
     return magnitude() == 1.0f;
 }
 
-auto vec4::component_product(const vec4 &other) const -> vec4
-{
-    return vec4(x * other.x, y * other.y, z * other.z, w * other.w);
-}
-
 auto vec4::dot(const vec4 &l, const vec4 &r) -> float
 {
-    return l * r;
+    return l.x * r.x + l.y * r.y + l.z * r.z + l.w * r.w;
 }
 
 auto vec4::angle(const vec4& l, const vec4& r, bool rad) -> float

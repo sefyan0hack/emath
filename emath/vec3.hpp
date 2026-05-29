@@ -8,13 +8,14 @@ struct vec3
 
     auto operator+=(const vec3& other) -> vec3&;
     auto operator-=(const vec3& other) -> vec3&;
+    auto operator*=(const vec3& other) -> vec3&;
 
     auto operator*=(float a) -> vec3&;
 
     auto operator+(const vec3& other) const -> vec3;
     auto operator-(const vec3& other) const -> vec3;
 
-    auto operator*(const vec3& other) const -> float;
+    auto operator*(const vec3& other) const -> vec3;
     auto operator*(float a) const -> vec3;
     auto operator-() const -> vec3;
 
@@ -22,8 +23,6 @@ struct vec3
 
     auto is_normalized() const -> bool;
     auto is_parallel_to(const vec3& other) const -> bool;
-
-    auto component_product(const vec3& other) const -> vec3;
 
     static auto length() -> int;
     static auto normalize(const vec3& v) -> vec3;

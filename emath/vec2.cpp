@@ -21,6 +21,13 @@ auto vec2::operator-=(const vec2& other) -> vec2& {
     return *this;
 }
 
+auto vec2::operator*=(const vec2& other) -> vec2&
+{
+    x *= other.x;
+    y *= other.y;
+    return *this;
+}
+
 auto vec2::operator*=(float a) -> vec2& {
     x *= a;
     y *= a;
@@ -42,10 +49,13 @@ auto vec2::operator-(const vec2& other) const -> vec2
     return result;
 }
 
-auto vec2::operator*(const vec2& other) const -> float
+auto vec2::operator*(const vec2& other) const -> vec2
 {
-    return x * other.x + y * other.y;
+    vec2 result = *this;
+    result *= other;
+    return result;
 }
+
 
 auto vec2::operator*(float a) const -> vec2
 {
@@ -79,14 +89,9 @@ auto vec2::is_normalized() const -> bool
     return magnitude() == 1.0f;
 }
 
-auto vec2::component_product(const vec2 &other) const -> vec2
-{
-    return vec2(x * other.x, y * other.y);
-}
-
 auto vec2::dot(const vec2 &l, const vec2 &r) -> float
 {
-    return l * r;
+    return  l.x * r.x + l.y * r.y;
 }
 
 auto vec2::angle(const vec2& l, const vec2& r, bool rad) -> float

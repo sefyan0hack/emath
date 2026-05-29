@@ -23,6 +23,14 @@ auto vec3::operator-=(const vec3& other) -> vec3& {
     return *this;
 }
 
+auto vec3::operator*=(const vec3& other) -> vec3&
+{
+    x *= other.x;
+    y *= other.y;
+    z *= other.z;
+    return *this;
+}
+
 auto vec3::operator*=(float a) -> vec3& {
     x *= a;
     y *= a;
@@ -45,9 +53,11 @@ auto vec3::operator-(const vec3& other) const -> vec3
     return result;
 }
 
-auto vec3::operator*(const vec3& other) const -> float
+auto vec3::operator*(const vec3& other) const -> vec3
 {
-    return x * other.x + y * other.y + z * other.z;
+    vec3 result = *this;
+    result *= other;
+    return result;
 }
 
 auto vec3::operator*(float a) const -> vec3
@@ -87,14 +97,9 @@ auto vec3::is_parallel_to(const vec3 &other) const -> bool
     return is_parallel(*this, other);
 }
 
-auto vec3::component_product(const vec3 &other) const -> vec3
-{
-    return vec3(x * other.x, y * other.y, z * other.z);
-}
-
 auto vec3::dot(const vec3 &l, const vec3 &r) -> float
 {
-    return l * r;
+    return  l.x * r.x + l.y * r.y + l.z * r.z;
 }
 
 auto vec3::cross(const vec3& l, const vec3& r) -> vec3
@@ -106,6 +111,7 @@ auto vec3::cross(const vec3& l, const vec3& r) -> vec3
         l.x * r.y - l.y * r.x
     );
 }
+
 auto vec3::angle(const vec3& l, const vec3& r, bool rad) -> float
 {
     // angle = acos( (dot(l,r)) / (magnitude(l) * magnitude(r)) )

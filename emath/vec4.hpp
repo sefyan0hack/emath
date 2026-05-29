@@ -8,21 +8,20 @@ struct vec4
 
     auto operator+=(const vec4& other) -> vec4&;
     auto operator-=(const vec4& other) -> vec4&;
+    auto operator*=(const vec4& other) -> vec4&;
 
     auto operator*=(float a) -> vec4&;
 
     auto operator+(const vec4& other) const -> vec4;
     auto operator-(const vec4& other) const -> vec4;
 
-    auto operator*(const vec4& other) const -> float;
+    auto operator*(const vec4& other) const -> vec4;
     auto operator*(float a) const -> vec4;
     auto operator-() const -> vec4;
 
     auto magnitude() const -> float;
 
     auto is_normalized() const -> bool;
-
-    auto component_product(const vec4& other) const -> vec4;
 
     static auto length() -> int;
     static auto normalize(const vec4& v) -> vec4;

@@ -21,6 +21,13 @@ auto ivec2::operator-=(const ivec2& other) -> ivec2& {
     return *this;
 }
 
+auto ivec2::operator*=(const ivec2& other) -> ivec2&
+{
+    x *= other.x;
+    y *= other.y;
+    return *this;
+}
+
 auto ivec2::operator*=(int a) -> ivec2& {
     x *= a;
     y *= a;
@@ -42,10 +49,13 @@ auto ivec2::operator-(const ivec2& other) const -> ivec2
     return result;
 }
 
-auto ivec2::operator*(const ivec2& other) const -> int
+auto ivec2::operator*(const ivec2& other) const -> ivec2
 {
-    return x * other.x + y * other.y;
+    ivec2 result = *this;
+    result *= other;
+    return result;
 }
+
 
 auto ivec2::operator*(int a) const -> ivec2
 {
