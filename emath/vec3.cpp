@@ -1,19 +1,9 @@
 #include "vec3.hpp"
+#include "free_func.hpp"
 
 #include <cmath>
-#include <numbers>
 
 namespace emath {
-
-auto to_deg(float rad) -> float
-{
-    return rad * 180.0f / std::numbers::pi_v<float>;
-}
-
-auto to_rad(float deg) -> float
-{
-    return deg * (std::numbers::pi_v<float> / 180.0f);
-}
 
 vec3::vec3() : x(0), y(0), z(0) {}
 vec3::vec3(float a) : x(a), y(a), z(a) {}

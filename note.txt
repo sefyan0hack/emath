@@ -2,9 +2,6 @@ TODO:
 
 /// note GLM uses column-major
 
-emath::vec2
-emath::vec4
-emath::ivec2
 emath::ivec3
 emath::ivec4
 emath::mat2

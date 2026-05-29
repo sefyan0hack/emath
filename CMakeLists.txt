@@ -31,8 +31,10 @@ add_library(emath)
 
 target_sources(emath 
     PRIVATE
+        emath/free_func.cpp
         emath/vec2.cpp
         emath/vec3.cpp
+        emath/vec4.cpp
     PUBLIC
     FILE_SET headers
       TYPE HEADERS
@@ -41,6 +43,7 @@ target_sources(emath
         emath/free_func.hpp
         emath/vec2.hpp
         emath/vec3.hpp
+        emath/vec4.hpp
 )
 
 add_executable(tests
