@@ -1,7 +1,19 @@
 #include "vec3.hpp"
 
 #include <cmath>
+#include <numbers>
+
 namespace emath {
+
+auto to_deg(float rad) -> float
+{
+    return rad * 180.0f / std::numbers::pi_v<float>;
+}
+
+auto to_rad(float deg) -> float
+{
+    return deg * (std::numbers::pi_v<float> / 180.0f);
+}
 
 vec3::vec3() : x(0), y(0), z(0) {}
 vec3::vec3(float a) : x(a), y(a), z(a) {}
@@ -62,6 +74,29 @@ auto vec3::operator-() const -> vec3
     return result;
 }
 
+
+auto vec3::magnitude() const -> float
+{
+    return std::hypot(x, y, z);
+}
+
+auto vec3::normalize(const vec3 &v) -> vec3
+{
+    auto l = v.magnitude();
+    if(l > 0) return v * (1.0f/l);
+    else return v;
+}
+
+auto vec3::is_normalized() const -> bool
+{
+    return magnitude() == 1.0f;
+}
+
+auto vec3::is_parallel_to(const vec3 &other) const -> bool
+{
+    return is_parallel(*this, other);
+}
+
 auto vec3::component_product(const vec3 &other) const -> vec3
 {
     return vec3(x * other.x, y * other.y, z * other.z);
@@ -72,15 +107,35 @@ auto vec3::dot(const vec3 &l, const vec3 &r) -> float
     return l * r;
 }
 
-auto vec3::magnitude() const -> float
+auto vec3::cross(const vec3& l, const vec3& r) -> vec3
 {
-    return std::hypot(x, y, z);
+    //note: | a × b != −b × a | but | a × b == −b × a |
+    return vec3(
+        l.y * r.z - l.z * r.y,
+        l.z * r.x - l.x * r.z,
+        l.x * r.y - l.y * r.x
+    );
+}
+auto vec3::angle(const vec3& l, const vec3& r, bool rad) -> float
+{
+    // angle = acos( (dot(l,r)) / (magnitude(l) * magnitude(r)) )
+
+    auto lxr_mag = l.magnitude() * r.magnitude();
+    float result = 0.0f;
+
+    if(lxr_mag > 0.0f) result = std::acos( dot(l,r) / lxr_mag);
+    if(!rad) result = to_deg(result);
+    return result;
 }
 
-auto vec3::normalize() -> void
+auto vec3::is_parallel(const vec3 &l, const vec3 &r) -> bool
 {
-    auto l = magnitude();
-    if(l > 0) (*this) *= 1.0f/l;
+    return cross(l, r).magnitude() == 0;
+}
+
+auto vec3::length() -> int
+{
+    return 3;
 }
 
 } // namespace emath
