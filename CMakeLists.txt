@@ -31,15 +31,16 @@ add_library(emath)
 
 target_sources(emath 
     PRIVATE
-        ${CMAKE_SOURCE_DIR}/emath/vec3.cpp
+        emath/vec3.cpp
     PUBLIC
     FILE_SET headers
       TYPE HEADERS
-      BASE_DIRS ${CMAKE_SOURCE_DIR}/emath
+      BASE_DIRS ${CMAKE_SOURCE_DIR}
       FILES 
-        ${CMAKE_SOURCE_DIR}/emath/vec3.hpp
+        emath/vec3.hpp
 )
 
 add_executable(tests
-    ${CMAKE_SOURCE_DIR}/tests/main.cpp
+    tests/main.cpp
 )
+target_link_libraries(tests PRIVATE emath)
