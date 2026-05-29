@@ -1,19 +1,9 @@
 #include "vec2.hpp"
+#include "free_func.hpp"
 
 #include <cmath>
-#include <numbers>
 
 namespace emath {
-
-auto to_deg(float rad) -> float
-{
-    return rad * 180.0f / std::numbers::pi_v<float>;
-}
-
-auto to_rad(float deg) -> float
-{
-    return deg * (std::numbers::pi_v<float> / 180.0f);
-}
 
 vec2::vec2() : x(0), y(0) {}
 vec2::vec2(float a) : x(a), y(a) {}
