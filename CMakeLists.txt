@@ -31,12 +31,14 @@ add_library(emath)
 
 target_sources(emath 
     PRIVATE
+        emath/vec2.cpp
         emath/vec3.cpp
     PUBLIC
     FILE_SET headers
       TYPE HEADERS
       BASE_DIRS ${CMAKE_SOURCE_DIR}
       FILES 
+        emath/vec2.hpp
         emath/vec3.hpp
 )
 
