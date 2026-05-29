@@ -15,6 +15,6 @@ auto vec3_tests() -> void
         emath::vec3 a(1.0f);
         EXPECT(a.x == 1.0f);
         EXPECT(a.y == 1.0f);
-        EXPECT(a.z == 11.0f);
+        EXPECT(a.z == 1.0f);
     }
 }
