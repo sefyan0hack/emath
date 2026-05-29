@@ -38,6 +38,7 @@ target_sources(emath
       TYPE HEADERS
       BASE_DIRS ${CMAKE_SOURCE_DIR}
       FILES 
+        emath/free_func.hpp
         emath/vec2.hpp
         emath/vec3.hpp
 )
