@@ -28,6 +28,13 @@ mat3::mat3(float diag)
     {0,0,diag}
 } {}
 
+mat3::mat3(const mat4& m)
+: data {
+    {m[0].x, m[0].y, m[0].z},
+    {m[1].x, m[1].y, m[1].z},
+    {m[2].x, m[2].y, m[2].z}
+} {}
+
 auto mat3::operator+(const mat3& m) const -> mat3
 {
     mat3 r;
