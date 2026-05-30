@@ -111,4 +111,14 @@ auto vec2::length() -> int
     return 2;
 }
 
+auto vec2::operator[](size_t i) -> float &
+{
+    return (&x)[i];
+}
+
+auto vec2::operator[](size_t i) const -> const float &
+{
+    return (&x)[i];
+}
+
 } // namespace emath

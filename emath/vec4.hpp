@@ -1,3 +1,7 @@
+#pragma once
+
+#include <cstddef>
+
 namespace emath {
 
 struct vec4
@@ -18,6 +22,9 @@ struct vec4
     auto operator*(const vec4& other) const -> vec4;
     auto operator*(float a) const -> vec4;
     auto operator-() const -> vec4;
+
+    auto operator[](size_t i) -> float&;
+    auto operator[](size_t i) const -> const float&;
 
     auto magnitude() const -> float;
 

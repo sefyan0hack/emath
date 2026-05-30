@@ -1,3 +1,6 @@
+#pragma once
+#include <cstddef>
+
 namespace emath {
 
 struct vec2
@@ -19,6 +22,9 @@ struct vec2
     auto operator*(float a) const -> vec2;
     auto operator-() const -> vec2;
 
+    auto operator[](size_t i) -> float&;
+    auto operator[](size_t i) const -> const float&;
+
     auto magnitude() const -> float;
 
     auto is_normalized() const -> bool;
@@ -28,7 +34,7 @@ struct vec2
     static auto dot(const vec2& l, const vec2& r) -> float;
     static auto angle(const vec2& l, const vec2& r, bool rad = true) -> float;
 
-    float x, y, z;
+    float x, y;
 };
 
 } // namespace emath

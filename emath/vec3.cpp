@@ -134,4 +134,14 @@ auto vec3::length() -> int
     return 3;
 }
 
+auto vec3::operator[](size_t i) -> float &
+{
+    return (&x)[i];
+}
+
+auto vec3::operator[](size_t i) const -> const float &
+{
+    return (&x)[i];
+}
+
 } // namespace emath

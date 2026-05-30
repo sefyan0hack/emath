@@ -89,14 +89,10 @@ auto ivec2::is_normalized() const -> bool
     return magnitude() == 1.0f;
 }
 
-auto ivec2::component_product(const ivec2 &other) const -> ivec2
-{
-    return ivec2(x * other.x, y * other.y);
-}
 
 auto ivec2::dot(const ivec2 &l, const ivec2 &r) -> int
 {
-    return l * r;
+    return l.x * r.x + l.y * r.y;
 }
 
 auto ivec2::angle(const ivec2& l, const ivec2& r, bool rad) -> float
@@ -114,6 +110,16 @@ auto ivec2::angle(const ivec2& l, const ivec2& r, bool rad) -> float
 auto ivec2::length() -> int
 {
     return 2;
+}
+
+auto ivec2::operator[](size_t i) -> int &
+{
+    return (&x)[i];
+}
+
+auto ivec2::operator[](size_t i) const -> const int &
+{
+    return (&x)[i];
 }
 
 } // namespace emath

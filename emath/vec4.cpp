@@ -118,4 +118,14 @@ auto vec4::length() -> int
     return 4;
 }
 
+auto vec4::operator[](size_t i) -> float &
+{
+    return (&x)[i];
+}
+
+auto vec4::operator[](size_t i) const -> const float &
+{
+    return (&x)[i];
+}
+
 } // namespace emath
