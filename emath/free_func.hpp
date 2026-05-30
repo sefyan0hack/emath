@@ -1,3 +1,5 @@
+#pragma once
+
 namespace emath {
 
 auto to_deg(float rad) -> float;
