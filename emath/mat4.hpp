@@ -1,0 +1,32 @@
+#pragma once
+#include <cstddef>
+#include "vec4.hpp"
+
+namespace emath {
+
+struct mat4 {
+    mat4();
+    mat4(float diag);
+    mat4(float m00, float m01, float m02, float m03,
+         float m10, float m11, float m12, float m13,
+         float m20, float m21, float m22, float m23,
+         float m30, float m31, float m32, float m33);
+
+    auto operator[](size_t i) -> vec4&;
+    auto operator[](size_t i) const -> const vec4&;
+
+    auto operator+(const mat4& m) const -> mat4;
+    auto operator-(const mat4& m) const -> mat4;
+    auto operator*(float s) const -> mat4;
+    auto operator*(const mat4& m) const -> mat4;
+
+    friend auto operator*(float s, const mat4& m) -> mat4;
+
+    auto determinant() const -> float;
+    auto inverse() const -> mat4;
+    auto transpose() const -> mat4;
+
+    vec4 data[4];
+};
+
+}
