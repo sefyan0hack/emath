@@ -1,6 +1,7 @@
 #pragma once
 #include <cstddef>
 #include "vec4.hpp"
+#include "mat3.hpp"
 
 namespace emath {
 
@@ -12,6 +13,7 @@ struct mat4 {
          float m20, float m21, float m22, float m23,
          float m30, float m31, float m32, float m33);
 
+    explicit mat4(const struct mat3& m);
     auto operator[](size_t i) -> vec4&;
     auto operator[](size_t i) const -> const vec4&;
 

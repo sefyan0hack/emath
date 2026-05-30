@@ -32,6 +32,14 @@ mat4::mat4(float diag)
     {0,0,0,diag}
 } {}
 
+mat4::mat4(const mat3& m)
+: data{
+    {m[0].x, m[0].y, m[0].z, 0.0f},
+    {m[1].x, m[1].y, m[1].z, 0.0f},
+    {m[2].x, m[2].y, m[2].z, 0.0f},
+    {0.0f,   0.0f,   0.0f,   1.0f}
+} {}
+
 auto mat4::operator+(const mat4 &m) const -> mat4
 {
     mat4 r;
