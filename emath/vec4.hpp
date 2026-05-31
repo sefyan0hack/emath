@@ -26,6 +26,8 @@ struct vec4
     auto operator[](size_t i) -> float&;
     auto operator[](size_t i) const -> const float&;
 
+    auto operator<=>(const vec4&) const = default;
+
     auto magnitude() const -> float;
 
     auto is_normalized() const -> bool;

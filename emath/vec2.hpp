@@ -25,6 +25,8 @@ struct vec2
     auto operator[](size_t i) -> float&;
     auto operator[](size_t i) const -> const float&;
 
+    auto operator<=>(const vec2&) const = default;
+
     auto magnitude() const -> float;
 
     auto is_normalized() const -> bool;

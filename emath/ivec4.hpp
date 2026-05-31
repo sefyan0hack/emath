@@ -26,6 +26,8 @@ struct ivec4
     auto operator[](size_t i) -> int&;
     auto operator[](size_t i) const -> const int&;
 
+    auto operator<=>(const ivec4&) const = default;
+
     auto magnitude() const -> float;
 
     auto is_normalized() const -> bool;

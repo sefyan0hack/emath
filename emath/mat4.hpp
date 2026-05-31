@@ -24,6 +24,8 @@ struct mat4 {
 
     friend auto operator*(float s, const mat4& m) -> mat4;
 
+    auto operator<=>(const mat4&) const = default;
+
     auto determinant() const -> float;
     auto inverse() const -> mat4;
     auto transpose() const -> mat4;

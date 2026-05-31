@@ -6,11 +6,14 @@
 #define EXPECT(cond) do{if(!(cond)) throw "-> ["#cond"] failed. " __FILE__ ":" STRIFY_(__LINE__); } while(0)
 
 #include "vec3_tests.hpp"
+#include "mat2_tests.hpp"
 
 int main()
 {
+
     try{
         vec3_tests();
+        mat2_tests();
 
     } catch(const std::exception e) {
         std::cout << e.what() << std::endl;

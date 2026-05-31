@@ -28,6 +28,8 @@ struct quat {
 
     auto operator[](size_t i) -> float&;
     auto operator[](size_t i) const -> const float&;
+
+    auto operator<=>(const quat&) const = default;
 };
 
 auto angle_axis(float angle, vec3 axis) -> quat;

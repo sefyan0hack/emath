@@ -17,4 +17,9 @@ auto vec3_tests() -> void
         EXPECT(a.y == 1.0f);
         EXPECT(a.z == 1.0f);
     }
+    // operator==
+    {
+        emath::vec3 a, b;
+        EXPECT(a == b);
+    }
 }

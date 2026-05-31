@@ -26,6 +26,8 @@ struct mat3 {
 
     auto operator*(const mat3& m) const -> mat3;
 
+    auto operator<=>(const mat3&) const = default;
+
     auto determinant() const -> float;
     auto inverse() const -> mat3;
     auto transpose() const -> mat3;

@@ -26,6 +26,8 @@ struct vec3
     auto operator[](size_t i) -> float&;
     auto operator[](size_t i) const -> const float&;
 
+    auto operator<=>(const vec3&) const = default;
+
     auto magnitude() const -> float;
 
     auto is_normalized() const -> bool;

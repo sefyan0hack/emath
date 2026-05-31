@@ -19,6 +19,8 @@ struct mat2 {
     auto operator*(float s) const -> mat2;
     friend auto operator*(float s, const mat2& m) -> mat2;
 
+    auto operator<=>(const mat2&) const = default;
+
     auto operator*(const mat2& m) const -> mat2;
     auto determinant() const -> float;
     auto inverse() const -> mat2;

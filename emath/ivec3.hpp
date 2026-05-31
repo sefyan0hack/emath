@@ -25,6 +25,8 @@ struct ivec3
     auto operator[](size_t i) -> int&;
     auto operator[](size_t i) const -> const int&;
 
+    auto operator<=>(const ivec3&) const = default;
+
     auto magnitude() const -> float;
 
     auto is_normalized() const -> bool;
