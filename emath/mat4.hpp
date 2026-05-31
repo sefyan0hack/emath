@@ -1,7 +1,6 @@
 #pragma once
-#include <cstddef>
 #include "vec4.hpp"
-#include "mat3.hpp"
+#include <cstddef>
 
 namespace emath {
 

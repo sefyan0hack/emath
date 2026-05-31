@@ -1,4 +1,6 @@
 #include "free_func.hpp"
+#include "vec3.hpp"
+
 #include <numbers>
 
 namespace emath {

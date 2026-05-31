@@ -1,6 +1,6 @@
 #pragma once
+
 #include <cstddef>
-#include "vec3.hpp"
 
 namespace emath {
 
@@ -12,7 +12,7 @@ struct quat {
 
     quat();
     quat(float w, float x, float y, float z);
-    quat(vec3 eulerAngle);
+    quat(struct vec3 eulerAngle);
 
     auto length() const -> float;
     auto magnitude() const -> float;
@@ -32,7 +32,7 @@ struct quat {
     auto operator<=>(const quat&) const = default;
 };
 
-auto angle_axis(float angle, vec3 axis) -> quat;
-auto rotate(const quat& q, vec3 v) -> vec3;
+auto angle_axis(float angle, struct vec3 axis) -> quat;
+auto rotate(const quat& q, struct vec3 v) -> struct vec3;
 
 }

@@ -1,4 +1,5 @@
 #include "mat3.hpp"
+#include "mat4.hpp"
 
 #include <cmath>
 #include <cassert>

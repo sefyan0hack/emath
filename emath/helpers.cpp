@@ -1,4 +1,5 @@
 #include "helpers.hpp"
+
 #include <cassert>
 
 namespace emath {
