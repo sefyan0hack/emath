@@ -41,7 +41,7 @@ target_sources(emath
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat2.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat3.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat4.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/emath/qua.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/quat.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/helpers.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/hash.cpp
     PUBLIC
@@ -60,7 +60,7 @@ target_sources(emath
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat2.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat3.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat4.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/emath/qua.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/quat.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/helpers.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/hash.hpp
 )

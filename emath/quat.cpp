@@ -1,22 +1,22 @@
-#include "qua.hpp"
+#include "quat.hpp"
 
 #include <cmath>
 
 namespace emath {
 
-qua::qua()
+quat::quat()
     : w(1.0f)
     , x(0.0f)
     , y(0.0f)
     , z(0.0f) {}
 
-qua::qua(float w, float x, float y, float z)
+quat::quat(float w, float x, float y, float z)
     : w(w)
     , x(x)
     , y(y)
     , z(z) {}
 
-qua::qua(vec3 eulerAngle)
+quat::quat(vec3 eulerAngle)
 {
     float cx = std::cos(eulerAngle.x * 0.5f);
     float sx = std::sin(eulerAngle.x * 0.5f);
@@ -33,15 +33,15 @@ qua::qua(vec3 eulerAngle)
     z = cx * cy * sz - sx * sy * cz;
 }
 
-auto qua::length() const -> float {
+auto quat::length() const -> float {
     return 4;
 }
 
-auto qua::magnitude() const -> float {
+auto quat::magnitude() const -> float {
     return std::sqrt(w * w + x * x + y * y + z * z);
 }
 
-auto qua::normalized() const -> qua {
+auto quat::normalized() const -> quat {
     float len = magnitude();
 
     if (len == 0.0f)
@@ -55,7 +55,7 @@ auto qua::normalized() const -> qua {
     };
 }
 
-auto qua::conjugate() const -> qua {
+auto quat::conjugate() const -> quat {
     return {
         w,
         -x,
@@ -64,7 +64,7 @@ auto qua::conjugate() const -> qua {
     };
 }
 
-auto qua::inverse() const -> qua {
+auto quat::inverse() const -> quat {
     float len2 = w * w + x * x + y * y + z * z;
 
     if (len2 == 0.0f)
@@ -73,18 +73,18 @@ auto qua::inverse() const -> qua {
     return conjugate() * (1.0f / len2);
 }
 
-auto qua::operator[](size_t i) -> float &
+auto quat::operator[](size_t i) -> float &
 {
     return (&x)[i];
 }
 
-auto qua::operator[](size_t i) const -> const float &
+auto quat::operator[](size_t i) const -> const float &
 {
     return (&x)[i];
 }
 
-auto operator+(const qua& a,
-               const qua& b) -> qua {
+auto operator+(const quat& a,
+               const quat& b) -> quat {
     return {
         a.w + b.w,
         a.x + b.x,
@@ -93,8 +93,8 @@ auto operator+(const qua& a,
     };
 }
 
-auto operator-(const qua& a,
-               const qua& b) -> qua {
+auto operator-(const quat& a,
+               const quat& b) -> quat {
     return {
         a.w - b.w,
         a.x - b.x,
@@ -103,8 +103,8 @@ auto operator-(const qua& a,
     };
 }
 
-auto operator*(const qua& q,
-               float s) -> qua {
+auto operator*(const quat& q,
+               float s) -> quat {
     return {
         q.w * s,
         q.x * s,
@@ -114,12 +114,12 @@ auto operator*(const qua& q,
 }
 
 auto operator*(float s,
-               const qua& q) -> qua {
+               const quat& q) -> quat {
     return q * s;
 }
 
-auto operator*(const qua& a,
-               const qua& b) -> qua {
+auto operator*(const quat& a,
+               const quat& b) -> quat {
     return {
         a.w * b.w - a.x * b.x - a.y * b.y - a.z * b.z,
         a.w * b.x + a.x * b.w + a.y * b.z - a.z * b.y,
@@ -128,7 +128,7 @@ auto operator*(const qua& a,
     };
 }
 
-auto angle_axis(float angle, vec3 axis) -> qua {
+auto angle_axis(float angle, vec3 axis) -> quat {
     float half = angle * 0.5f;
 
     float s = std::sin(half);
@@ -142,15 +142,15 @@ auto angle_axis(float angle, vec3 axis) -> qua {
     };
 }
 
-auto rotate(const qua& q, vec3 v) -> vec3 {
-    qua p{
+auto rotate(const quat& q, vec3 v) -> vec3 {
+    quat p{
         0.0f,
         v.x,
         v.y,
         v.z
     };
 
-    qua r = q * p * q.inverse();
+    quat r = q * p * q.inverse();
 
     return {
         r.x,

@@ -103,7 +103,7 @@ auto std::hash<emath::mat4>::operator()(emath::mat4 const& m) const noexcept -> 
 	return seed;
 }
 
-auto std::hash<emath::qua>::operator()(emath::qua const& q) const noexcept -> size_t
+auto std::hash<emath::quat>::operator()(emath::quat const& q) const noexcept -> size_t
 {
 	size_t seed = 0;
 	hash<float> hasher;

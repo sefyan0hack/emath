@@ -11,7 +11,7 @@
 #include "mat2.hpp"
 #include "mat3.hpp"
 #include "mat4.hpp"
-#include "qua.hpp"
+#include "quat.hpp"
 
 namespace std
 {
@@ -60,9 +60,9 @@ namespace std
 		auto operator()(emath::mat4 const& v) const noexcept -> size_t;
 	};
 
-    template <> struct hash<emath::qua>
+    template <> struct hash<emath::quat>
 	{
-		auto operator()(emath::qua const& v) const noexcept -> size_t;
+		auto operator()(emath::quat const& v) const noexcept -> size_t;
 	};
 
 }
