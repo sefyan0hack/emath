@@ -42,7 +42,7 @@ target_sources(emath
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat3.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat4.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/quat.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/emath/helpers.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/helpers.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/hash.cpp
     PUBLIC
     FILE_SET headers
