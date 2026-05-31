@@ -63,7 +63,7 @@ target_sources(emath
         emath/qua.hpp
 )
 
-add_executable(tests
-    tests/main.cpp
-)
-target_link_libraries(tests PRIVATE emath)
+if(EMATH_TESTS)
+add_executable(emath-tests tests/main.cpp)
+target_link_libraries(emath-tests PRIVATE emath)
+endif()
