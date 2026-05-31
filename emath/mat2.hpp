@@ -32,13 +32,15 @@ struct mat2 {
 
 };
 
+}
+
 #ifdef __cpp_lib_formatters
 template<>
-struct std::formatter<mat2> {
+struct std::formatter<emath::mat2> {
   constexpr auto parse(std::format_parse_context& context) {
     return context.begin();
   }
-  auto format(const mat2& obj, auto& context) const {
+  auto format(const emath::mat2& obj, auto& context) const {
     return std::format_to(context.out(),
   "[[ {}, {} ], [ {}, {} ]]",
     obj[0][0], obj[1][0],   //r 0
@@ -46,4 +48,3 @@ struct std::formatter<mat2> {
   }
 };
 #endif
-}

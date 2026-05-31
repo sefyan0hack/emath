@@ -41,14 +41,16 @@ struct vec2
     float x, y;
 };
 
+} // namespace emath
+
 #ifdef __cpp_lib_formatters
 
 template<>
-struct std::formatter<vec2> {
+struct std::formatter<emath::vec2> {
   constexpr auto parse(std::format_parse_context& context) {
     return context.begin();
   }
-  auto format(const vec2& obj, auto& context) const {
+  auto format(const emath::vec2& obj, auto& context) const {
     return std::format_to(context.out(),
     R"({{ "x": {}, "y": {} }})"
     , obj.x, obj.y);
@@ -56,5 +58,3 @@ struct std::formatter<vec2> {
 };
 
 #endif
-
-} // namespace emath

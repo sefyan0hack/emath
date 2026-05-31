@@ -40,14 +40,16 @@ struct ivec2
     int x, y;
 };
 
+} // namespace emath
+
 #ifdef __cpp_lib_formatters
 
 template<>
-struct std::formatter<ivec2> {
+struct std::formatter<emath::ivec2> {
   constexpr auto parse(std::format_parse_context& context) {
     return context.begin();
   }
-  auto format(const ivec2& obj, auto& context) const {
+  auto format(const emath::ivec2& obj, auto& context) const {
     return std::format_to(context.out(),
     R"({{ "x": {}, "y": {} }})"
     , obj.x, obj.y);
@@ -55,5 +57,3 @@ struct std::formatter<ivec2> {
 };
 
 #endif
-
-} // namespace emath

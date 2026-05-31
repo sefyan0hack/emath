@@ -36,15 +36,16 @@ struct quat {
 auto angle_axis(float angle, struct vec3 axis) -> quat;
 auto rotate(const quat& q, struct vec3 v) -> struct vec3;
 
+}
 
 #ifdef __cpp_lib_formatters
 
 template<>
-struct std::formatter<quat> {
+struct std::formatter<emath::quat> {
   constexpr auto parse(std::format_parse_context& context) {
     return context.begin();
   }
-  auto format(const quat& obj, auto& context) const {
+  auto format(const emath::quat& obj, auto& context) const {
     return std::format_to(context.out(),
     R"({{ "w": {}, "y": {}, "z": {}, "x": {} }})"
     , obj.w, obj.y, obj.z, obj.x);
@@ -52,6 +53,3 @@ struct std::formatter<quat> {
 };
 
 #endif
-
-
-}

@@ -36,13 +36,15 @@ struct mat3 {
     vec3 data[3];
 };
 
+}
+
 #ifdef __cpp_lib_formatters
 template<>
-struct std::formatter<mat3> {
+struct std::formatter<emath::mat3> {
   constexpr auto parse(std::format_parse_context& context) {
     return context.begin();
   }
-  auto format(const mat3& obj, auto& context) const {
+  auto format(const emath::mat3& obj, auto& context) const {
     return std::format_to(context.out(),
     "[[ {}, {}, {} ], "
     "[ {}, {}, {} ], "
@@ -53,4 +55,3 @@ struct std::formatter<mat3> {
   }
 };
 #endif
-}

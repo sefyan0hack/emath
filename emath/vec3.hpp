@@ -44,14 +44,16 @@ struct vec3
     float x, y, z;
 };
 
+} // namespace emath
+
 #ifdef __cpp_lib_formatters
 
 template<>
-struct std::formatter<vec3> {
+struct std::formatter<emath::vec3> {
   constexpr auto parse(std::format_parse_context& context) {
     return context.begin();
   }
-  auto format(const vec3& obj, auto& context) const {
+  auto format(const emath::vec3& obj, auto& context) const {
     return std::format_to(context.out(),
     R"({{ "x": {}, "y": {}, "z": {} }})"
     , obj.x, obj.y, obj.z);
@@ -59,5 +61,3 @@ struct std::formatter<vec3> {
 };
 
 #endif
-
-} // namespace emath
