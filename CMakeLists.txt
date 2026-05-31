@@ -31,36 +31,36 @@ add_library(emath)
 
 target_sources(emath 
     PRIVATE
-        emath/free_func.cpp
-        emath/vec2.cpp
-        emath/vec3.cpp
-        emath/vec4.cpp
-        emath/ivec2.cpp
-        emath/ivec3.cpp
-        emath/ivec4.cpp
-        emath/mat2.cpp
-        emath/mat3.cpp
-        emath/mat4.cpp
-        emath/qua.cpp
-        emath/helpers.hpp
-        emath/helpers.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/free_func.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/vec2.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/vec3.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/vec4.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/ivec2.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/ivec3.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/ivec4.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat2.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat3.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat4.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/qua.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/helpers.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/helpers.cpp
     PUBLIC
     FILE_SET headers
       TYPE HEADERS
-      BASE_DIRS ${CMAKE_SOURCE_DIR}
+      BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}
       FILES 
-        emath/emath.hpp
-        emath/free_func.hpp
-        emath/vec2.hpp
-        emath/vec3.hpp
-        emath/vec4.hpp
-        emath/ivec2.hpp
-        emath/ivec3.hpp
-        emath/ivec4.hpp
-        emath/mat2.hpp
-        emath/mat3.hpp
-        emath/mat4.hpp
-        emath/qua.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/emath.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/free_func.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/vec2.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/vec3.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/vec4.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/ivec2.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/ivec3.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/ivec4.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat2.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat3.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat4.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/qua.hpp
 )
 
 if(EMATH_TESTS)
