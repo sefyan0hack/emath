@@ -1,7 +1,9 @@
 #pragma once
 
 #include "vec3.hpp"
+
 #include <cstddef>
+#include <format>
 
 namespace emath {
 
@@ -34,5 +36,21 @@ struct mat3 {
     vec3 data[3];
 };
 
-
+#ifdef __cpp_lib_formatters
+template<>
+struct std::formatter<mat3> {
+  constexpr auto parse(std::format_parse_context& context) {
+    return context.begin();
+  }
+  auto format(const mat3& obj, auto& context) const {
+    return std::format_to(context.out(),
+    "[[ {}, {}, {} ], "
+    "[ {}, {}, {} ], "
+    "[ {}, {}, {} ]]",
+    obj[0][0], obj[1][0], obj[2][0],
+    obj[0][1], obj[1][1], obj[2][1],
+    obj[0][2], obj[1][2], obj[2][2]);
+  }
+};
+#endif
 }

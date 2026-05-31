@@ -1,5 +1,7 @@
 #pragma once
+
 #include <cstddef>
+#include <format>
 
 namespace emath {
 
@@ -38,5 +40,21 @@ struct vec2
 
     float x, y;
 };
+
+#ifdef __cpp_lib_formatters
+
+template<>
+struct std::formatter<vec2> {
+  constexpr auto parse(std::format_parse_context& context) {
+    return context.begin();
+  }
+  auto format(const vec2& obj, auto& context) const {
+    return std::format_to(context.out(),
+    R"({{ "x": {}, "y": {} }})"
+    , obj.x, obj.y);
+  }
+};
+
+#endif
 
 } // namespace emath

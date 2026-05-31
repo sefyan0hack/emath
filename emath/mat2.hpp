@@ -1,6 +1,8 @@
 #pragma once
 #include "vec2.hpp"
+
 #include <cstddef>
+#include <format>
 
 namespace emath {
 
@@ -30,4 +32,18 @@ struct mat2 {
 
 };
 
+#ifdef __cpp_lib_formatters
+template<>
+struct std::formatter<mat2> {
+  constexpr auto parse(std::format_parse_context& context) {
+    return context.begin();
+  }
+  auto format(const mat2& obj, auto& context) const {
+    return std::format_to(context.out(),
+  "[[ {}, {} ], [ {}, {} ]]",
+    obj[0][0], obj[1][0],   //r 0
+    obj[0][1], obj[1][1]);  //r1
+  }
+};
+#endif
 }

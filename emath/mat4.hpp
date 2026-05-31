@@ -1,6 +1,8 @@
 #pragma once
 #include "vec4.hpp"
+
 #include <cstddef>
+#include <format>
 
 namespace emath {
 
@@ -32,4 +34,27 @@ struct mat4 {
     vec4 data[4];
 };
 
+#ifdef __cpp_lib_formatters
+template<>
+struct std::formatter<mat4> {
+    constexpr auto parse(std::format_parse_context& context) {
+        return context.begin();
+    }
+
+    auto format(const mat4& obj, auto& context) const {
+        return std::format_to(
+            context.out(),
+            "[[ {}, {}, {}, {} ], "
+            "[ {}, {}, {}, {} ], "
+            "[ {}, {}, {}, {} ], "
+            "[ {}, {}, {}, {} ]]",
+
+            obj[0][0], obj[1][0], obj[2][0], obj[3][0],
+            obj[0][1], obj[1][1], obj[2][1], obj[3][1],
+            obj[0][2], obj[1][2], obj[2][2], obj[3][2],
+            obj[0][3], obj[1][3], obj[2][3], obj[3][3]
+        );
+    }
+};
+#endif
 }
