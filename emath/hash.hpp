@@ -8,6 +8,9 @@
 #include "ivec2.hpp"
 #include "ivec3.hpp"
 #include "ivec4.hpp"
+#include "uvec2.hpp"
+#include "uvec3.hpp"
+#include "uvec4.hpp"
 #include "mat2.hpp"
 #include "mat3.hpp"
 #include "mat4.hpp"
@@ -43,6 +46,21 @@ namespace std
 	template <> struct hash<emath::ivec4>
 	{
 		auto operator()(emath::ivec4 const& v) const noexcept -> size_t;
+	};
+
+	template <> struct hash<emath::uvec2>
+	{
+		auto operator()(emath::uvec2 const& v) const noexcept -> size_t;
+	};
+
+	template <> struct hash<emath::uvec3>
+	{
+		auto operator()(emath::uvec3 const& v) const noexcept -> size_t;
+	};
+
+	template <> struct hash<emath::uvec4>
+	{
+		auto operator()(emath::uvec4 const& v) const noexcept -> size_t;
 	};
 
 	template <> struct hash<emath::mat2>

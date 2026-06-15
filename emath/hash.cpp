@@ -69,7 +69,39 @@ auto std::hash<emath::ivec4>::operator()(emath::ivec4 const& v) const noexcept -
 	hash_combine(seed, hasher(v.z));
 	hash_combine(seed, hasher(v.w));
 	return seed;
-}	
+}
+
+auto std::hash<emath::uvec2>::operator()(emath::uvec2 const& v) const noexcept -> size_t
+{
+	size_t seed = 0;
+	hash<int> hasher;
+	hash_combine(seed, hasher(v.x));
+	hash_combine(seed, hasher(v.y));
+	return seed;
+}
+	
+
+auto std::hash<emath::uvec3>::operator()(emath::uvec3 const& v) const noexcept -> size_t
+{
+	size_t seed = 0;
+	hash<int> hasher;
+	hash_combine(seed, hasher(v.x));
+	hash_combine(seed, hasher(v.y));
+	hash_combine(seed, hasher(v.z));
+	return seed;
+}
+	
+
+auto std::hash<emath::uvec4>::operator()(emath::uvec4 const& v) const noexcept -> size_t
+{
+	size_t seed = 0;
+	hash<int> hasher;
+	hash_combine(seed, hasher(v.x));
+	hash_combine(seed, hasher(v.y));
+	hash_combine(seed, hasher(v.z));
+	hash_combine(seed, hasher(v.w));
+	return seed;
+}
 
 auto std::hash<emath::mat2>::operator()(emath::mat2 const& m) const noexcept -> size_t
 {
