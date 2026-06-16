@@ -103,6 +103,17 @@ auto std::hash<emath::uvec4>::operator()(emath::uvec4 const& v) const noexcept -
 	return seed;
 }
 
+auto std::hash<emath::u16vec4>::operator()(emath::u16vec4 const& v) const noexcept -> size_t
+{
+	size_t seed = 0;
+	hash<int> hasher;
+	hash_combine(seed, hasher(v.x));
+	hash_combine(seed, hasher(v.y));
+	hash_combine(seed, hasher(v.z));
+	hash_combine(seed, hasher(v.w));
+	return seed;
+}
+
 auto std::hash<emath::mat2>::operator()(emath::mat2 const& m) const noexcept -> size_t
 {
 	size_t seed = 0;

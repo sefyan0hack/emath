@@ -24,6 +24,7 @@ target_sources(emath
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/uvec2.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/uvec3.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/uvec4.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/u16vec4.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat2.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat3.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat4.cpp
@@ -46,6 +47,7 @@ target_sources(emath
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/uvec2.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/uvec3.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/uvec4.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/emath/u16vec4.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat2.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat3.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/emath/mat4.hpp

@@ -11,6 +11,7 @@
 #include "uvec2.hpp"
 #include "uvec3.hpp"
 #include "uvec4.hpp"
+#include "u16vec4.hpp"
 #include "mat2.hpp"
 #include "mat3.hpp"
 #include "mat4.hpp"
@@ -61,6 +62,11 @@ namespace std
 	template <> struct hash<emath::uvec4>
 	{
 		auto operator()(emath::uvec4 const& v) const noexcept -> size_t;
+	};
+
+	template <> struct hash<emath::u16vec4>
+	{
+		auto operator()(emath::u16vec4 const& v) const noexcept -> size_t;
 	};
 
 	template <> struct hash<emath::mat2>
