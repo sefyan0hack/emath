@@ -103,7 +103,7 @@ auto mat3::transpose() const -> mat3
     mat3 r;
     for(int i=0;i<3;++i)
         for(int j=0;j<3;++j)
-            r[i][j] = data[i][j];
+            r[i][j] = data[j][i];
     return r;
 }
 
