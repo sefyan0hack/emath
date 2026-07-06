@@ -68,13 +68,16 @@ auto operator*(float s, const mat4& m) -> mat4
 
 auto mat4::operator*(const mat4& m) const -> mat4
 {
-    mat4 r(0.f);
-    for(int i=0;i<4;++i)
-        for(int j=0;j<4;++j)
-            for(int k=0;k<4;++k)
-                r[i][j] += data[i][k] * m[k][j];
+    mat4 r(0.0f);
+
+    for (int col = 0; col < 4; ++col)
+        for (int row = 0; row < 4; ++row)
+            for (int k = 0; k < 4; ++k)
+                r[col][row] += data[k][row] * m[col][k];
+
     return r;
 }
+
 auto mat4::determinant() const -> float
 {
     const mat4& m = *this;
